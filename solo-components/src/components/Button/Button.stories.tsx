@@ -31,35 +31,32 @@ const Row = ({ children, label }: { children: React.ReactNode; label: string }) 
   </div>
 );
 
+// `blue` is de-emphasized — rarely used, so keep it out of the showcase.
+const showcaseColors = buttonVariants.colors.filter(c => c !== 'blue');
+const showcaseSizes = ['md', 'sm'] as const;
+
 export const AllColors: Story = {
-  render: () => {
-    // `blue` is de-emphasized — rarely used, so keep it out of the showcase.
-    const showcaseColors = buttonVariants.colors.filter(c => c !== 'blue');
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <Row label='Solid variant (md)'>
-          {showcaseColors.map(c => (
-            <Button key={c} color={c} variant='solid' size='md'>
-              solid {c} md
-            </Button>
-          ))}
-        </Row>
-        <Row label='Bare variant (md)'>
-          {showcaseColors.map(c => (
-            <Button key={c} color={c} variant='bare' size='md'>
-              bare {c} md
-            </Button>
-          ))}
-        </Row>
-        <Row label='Disabled'>
-          <Button disabled color='dark-purple'>
-            Next
-          </Button>
-          <Button disabled color='gray'>
-            Back
-          </Button>
-        </Row>
-      </div>
-    );
-  }
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      {buttonVariants.variants.flatMap(variant =>
+        showcaseSizes.map(size => (
+          <Row key={`${variant}-${size}`} label={`${variant} variant (${size})`}>
+            {showcaseColors.map(c => (
+              <Button key={c} color={c} variant={variant} size={size}>
+                {variant} {c} {size}
+              </Button>
+            ))}
+          </Row>
+        ))
+      )}
+      <Row label='Disabled'>
+        <Button disabled color='dark-purple'>
+          Next
+        </Button>
+        <Button disabled color='gray'>
+          Back
+        </Button>
+      </Row>
+    </div>
+  )
 };

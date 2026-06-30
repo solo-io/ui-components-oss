@@ -85,11 +85,12 @@ export const StyledButton = styled(
           background-color: ${c.bg};
           color: ${c.fg};
           border-color: ${c.border ?? 'transparent'};
+          /* Hover/active darken the fill (active darker than hover) in both modes. */
           &:not([aria-disabled='true']):hover {
-            background-color: ${c.hover};
+            background-color: color-mix(in srgb, ${c.bg} 88%, #000);
           }
           &:not([aria-disabled='true']):active {
-            background-color: ${c.active};
+            background-color: color-mix(in srgb, ${c.bg} 76%, #000);
             transform: translateY(1px);
           }
         `}
