@@ -9,9 +9,9 @@ import { buttonVariants, type ButtonProps } from './Button';
 
 type SizeType = ElementOf<(typeof buttonVariants)['sizes']>;
 
-const sizeMap: Record<SizeType, { py: string; px: string; gap: string }> = {
-  sm: { py: '6px', px: '10px', gap: spacingPx.xs },
-  md: { py: '8px', px: '14px', gap: spacingPx.sm }
+const sizeMap: Record<SizeType, { py: string; px: string; gap: string; height: string; fontSize: string }> = {
+  sm: { py: '5px', px: '10px', gap: spacingPx.xs, height: '30px', fontSize: '13px' },
+  md: { py: '8px', px: '14px', gap: spacingPx.sm, height: '36px', fontSize: '14px' }
 };
 
 export const StyledButton = styled(
@@ -40,11 +40,12 @@ export const StyledButton = styled(
     align-items: center;
     justify-content: center;
     gap: ${sizeData.gap};
-    height: 36px;
+    height: ${sizeData.height};
     border: 1px solid transparent;
     border-radius: ${isCircleIconButton ? '999px' : '4px'};
     font: inherit;
     font-weight: 400;
+    font-size: ${sizeData.fontSize};
     line-height: 1;
     white-space: nowrap;
     cursor: pointer;
@@ -56,7 +57,7 @@ export const StyledButton = styled(
 
     ${isIcon
       ? css`
-          width: 36px;
+          width: ${sizeData.height};
           padding: 0;
         `
       : css`
