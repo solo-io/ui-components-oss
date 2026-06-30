@@ -18,7 +18,7 @@ const Container = styled('div', dontForwardProps('background', 'frame', 'shadow'
   align-items: flex-start;
   gap: 12px;
   padding: 14px 16px;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid ${props => props.frame};
   background: ${props => props.background};
   box-shadow: ${props => props.shadow};

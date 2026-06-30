@@ -42,17 +42,17 @@ export const StyledButton = styled(
     gap: ${sizeData.gap};
     height: 36px;
     border: 1px solid transparent;
-    border-radius: ${isCircleIconButton ? '999px' : '6px'};
+    border-radius: ${isCircleIconButton ? '999px' : '4px'};
     font: inherit;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1;
     white-space: nowrap;
     cursor: pointer;
     user-select: none;
     transition:
-      background-color 0.05s ease,
-      border-color 0.05s ease,
-      transform 0.05s ease;
+      background-color 0.08s ease,
+      border-color 0.08s ease,
+      transform 0.08s ease;
 
     ${isIcon
       ? css`

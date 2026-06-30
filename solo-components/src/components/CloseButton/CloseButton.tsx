@@ -13,13 +13,13 @@ const StyledCloseButton = styled('button', dontForwardProps('styleOverrides'))<{
   padding: 6px;
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   color: inherit;
   opacity: 0.8;
   transition:
-    background-color 0.05s ease,
-    opacity 0.05s ease;
+    background-color 0.08s ease,
+    opacity 0.08s ease;
 
   &:hover {
     opacity: 1;

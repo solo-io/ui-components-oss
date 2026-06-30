@@ -24,7 +24,7 @@ const EditorContainer = styled.div<{ height: string; mode: SoloMode; styleOverri
   display: flex;
   flex-direction: column;
   background: transparent;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
   /* Light gets a clearer border + a soft card shadow so the editor reads as an
      elevated surface on a white page; dark keeps a subtle themed frame. */
@@ -60,13 +60,13 @@ const ControlsBar = styled.div<{ offsetRight: number }>`
 const IconActionButton = styled.button`
   background: var(--color-bg-elevated, #1e1e22);
   border: 1px solid var(--color-border-base, #3f3f46);
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.05s ease;
+  transition: all 0.08s ease;
 
   &:hover {
     background: var(--color-bg-hover, #282035);
