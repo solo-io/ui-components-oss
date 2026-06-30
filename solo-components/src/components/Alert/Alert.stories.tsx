@@ -16,10 +16,10 @@ const samples: { type: AlertType; title: string; msg: string }[] = [
   { type: 'danger', title: 'Danger', msg: 'This will permanently delete the resource.' }
 ];
 
-const Stack = ({ gradient }: { gradient?: boolean }) => (
+const Stack = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 20, maxWidth: 460 }}>
     {samples.map(s => (
-      <Alert key={s.type} type={s.type} title={s.title} gradient={gradient}>
+      <Alert key={s.type} type={s.type} title={s.title}>
         {s.msg}
       </Alert>
     ))}
@@ -28,10 +28,6 @@ const Stack = ({ gradient }: { gradient?: boolean }) => (
 
 export const AllTypes: Story = {
   render: () => <Stack />
-};
-
-export const Gradient: Story = {
-  render: () => <Stack gradient />
 };
 
 export const Dismissable: Story = {
