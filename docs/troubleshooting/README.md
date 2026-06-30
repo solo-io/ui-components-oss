@@ -1,6 +1,6 @@
 # ⚠️ Troubleshooting
 
-Things that bite when integrating `@solo.io/ui-components-oss` into a consumer.
+Things that bite when integrating `@solo-io/ui-components-oss` into a consumer.
 
 ## ⚛️ Duplicate React instances
 
@@ -21,11 +21,11 @@ Things that bite when integrating `@solo.io/ui-components-oss` into a consumer.
 
 ## 📦 `404 Not Found` on install
 
-- 💥 **Symptom:** `yarn add @solo.io/ui-components-oss` fails with `404`.
-- 🧠 **Cause:** a typo in the scope (it's `@solo.io`, with a dot), or the
+- 💥 **Symptom:** `yarn add @solo-io/ui-components-oss` fails with `404`.
+- 🧠 **Cause:** a typo in the scope (it's `@solo-io`, with a hyphen), or the
   version you pinned hasn't been published yet.
 - 🧹 **Fix:** the package is public on the npm registry — no token needed.
   List the published versions with:
   ```bash
-  npm view @solo.io/ui-components-oss versions
+  npm view @solo-io/ui-components-oss versions
   ```

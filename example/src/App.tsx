@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, buttonVariants } from '@solo.io/ui-components-oss';
+import { Button, buttonVariants } from '@solo-io/ui-components-oss';
 
 export const App = () => {
   const [count, setCount] = useState(0);

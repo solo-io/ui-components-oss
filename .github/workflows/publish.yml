@@ -39,7 +39,7 @@ jobs:
             exit 1
           fi
           npm pkg set version="$VERSION"
-          echo "Set @solo.io/ui-components-oss version to $VERSION"
+          echo "Set @solo-io/ui-components-oss version to $VERSION"
 
       - name: Build library
         run: yarn build

@@ -1,6 +1,6 @@
 # 🧪 example
 
-Tiny Vite app that imports `@solo.io/ui-components-oss` from the workspace.
+Tiny Vite app that imports `@solo-io/ui-components-oss` from the workspace.
 
 ## ▶️ Run
 
@@ -11,7 +11,7 @@ yarn example      # 🌐 http://localhost:5173
 
 ## 🪄 How it works
 
-Vite aliases `@solo.io/ui-components-oss` → `../solo-components/src/index.ts`, so library edits **hot-reload instantly** — no rebuild needed.
+Vite aliases `@solo-io/ui-components-oss` → `../solo-components/src/index.ts`, so library edits **hot-reload instantly** — no rebuild needed.
 
 ## 📁 Files
 

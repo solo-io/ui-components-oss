@@ -34,8 +34,10 @@ export const soloColorTokens: Record<SoloColorName, SoloColorTokens> = {
   // Deep amber, near-complementary to the purple theme.
   warning: { bg: '#b45309', hover: '#d97706', active: '#92400e', fg: '#ffffff', bareFg: '#cf7032' },
   success: { bg: '#15803d', hover: '#16a34a', active: '#166534', fg: '#ffffff', bareFg: '#2f9e5c' },
-  gray: { bg: '#636370', hover: '#71717a', active: '#52525b', fg: '#ffffff', bareFg: '#82828c' },
-  black: { bg: '#27272a', hover: '#37373d', active: '#1c1c1f', fg: '#ffffff', border: '#52525b', bareFg: '#808086' }
+  // Gray bare is lighter on dark; black bare is darker on light — each pulls away
+  // from the dim background it sits on.
+  gray: { bg: '#636370', hover: '#71717a', active: '#52525b', fg: '#ffffff', bareFg: { dark: '#a1a1aa', light: '#82828c' } },
+  black: { bg: '#27272a', hover: '#37373d', active: '#1c1c1f', fg: '#ffffff', border: '#52525b', bareFg: { dark: '#808086', light: '#3f3f46' } }
 };
 
 /** Resolve a possibly per-mode bare color for the active mode. */

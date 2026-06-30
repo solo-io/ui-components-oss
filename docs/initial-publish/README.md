@@ -1,6 +1,6 @@
 # 🚢 Initial publish (one-time setup)
 
-`@solo.io/ui-components-oss` publishes to the **public npm registry** via **OIDC
+`@solo-io/ui-components-oss` publishes to the **public npm registry** via **OIDC
 Trusted Publishing** — CI authenticates with a short-lived token, no stored
 secret. But a trusted publisher can only be attached to a package that already
 exists, so the **first** publish is done manually. Do this once; after that,
@@ -8,7 +8,7 @@ releases are just `yarn patch-release` (see the [root README](../../README.md#-p
 
 ## 👤 Who needs to do this
 
-Someone with **`@solo.io` npm org admin/owner** rights — they must be able to
+Someone with **`@solo-io` npm org admin/owner** rights — they must be able to
 publish in the org and configure its Trusted Publisher on npmjs.com. (Routine
 releases afterward need only GitHub repo write access — no npm login.)
 
@@ -20,7 +20,7 @@ nvm use && yarn install
 yarn build                        # produces solo-components/dist
 cd solo-components
 npm pkg set version=0.0.0         # throwaway bootstrap version
-npm publish --access public       # creates @solo.io/ui-components-oss on npm
+npm publish --access public       # creates @solo-io/ui-components-oss on npm
 cd ..
 ```
 

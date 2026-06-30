@@ -24,7 +24,7 @@ export default defineConfig({
   build: {
     lib: {
       // Multiple entries: `index` is the main package export, `styles` is the
-      // `@solo.io/ui-components-oss/styles` subpath export. Add a line here per new subpath.
+      // `@solo-io/ui-components-oss/styles` subpath export. Add a line here per new subpath.
       entry: {
         'solo-components': resolve(__dirname, 'src/index.ts'),
         styles: resolve(__dirname, 'src/styles.ts')

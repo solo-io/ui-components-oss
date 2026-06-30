@@ -1387,9 +1387,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solo.io/ui-components-oss@workspace:^, @solo.io/ui-components-oss@workspace:solo-components":
+"@solo-io/ui-components-oss@workspace:^, @solo-io/ui-components-oss@workspace:solo-components":
   version: 0.0.0-use.local
-  resolution: "@solo.io/ui-components-oss@workspace:solo-components"
+  resolution: "@solo-io/ui-components-oss@workspace:solo-components"
   dependencies:
     "@emotion/react": "npm:^11.14.0"
     "@emotion/styled": "npm:^11.14.0"
@@ -4943,7 +4943,7 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:^11.14.0"
     "@emotion/styled": "npm:^11.14.0"
-    "@solo.io/ui-components-oss": "workspace:^"
+    "@solo-io/ui-components-oss": "workspace:^"
     "@types/react": "npm:^19.0.0"
     "@types/react-dom": "npm:^19.0.0"
     "@vitejs/plugin-react": "npm:^4.3.4"

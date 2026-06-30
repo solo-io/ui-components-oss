@@ -1,7 +1,7 @@
 # 🎨 ui-components-oss
 
 Yarn v4 workspace for Solo.io's open-source React component library, published
-publicly as `@solo.io/ui-components-oss` to the npm registry.
+publicly as `@solo-io/ui-components-oss` to the npm registry.
 
 ```
 📦 ui-components-oss/
@@ -39,7 +39,7 @@ field in the file is a local-dev placeholder.
 🚫 **Additive changes only.** For breaking changes, cut a minor or major tag
 manually so consumers see the bump.
 
-🆕 **First publish only:** a one-time bootstrap (npm `@solo.io` org access +
+🆕 **First publish only:** a one-time bootstrap (npm `@solo-io` org access +
 `npm login` + enabling Trusted Publishing) is required — see
 [`docs/initial-publish`](./docs/initial-publish/README.md). After that, cutting a
 release needs only **write access to this repo** (no npm login).
@@ -50,7 +50,7 @@ release needs only **write access to this repo** (no npm login).
 | --------------- | -------------- | ---------------------------------------------- |
 | `test.yml`      | PRs + `main`   | ✅ typecheck · tests · library + example build |
 | `storybook.yml` | push to `main` | 📚 builds Storybook → 🌐 GitHub Pages          |
-| `publish.yml`   | tag `v*`       | 📦 publishes `@solo.io/ui-components-oss`      |
+| `publish.yml`   | tag `v*`       | 📦 publishes `@solo-io/ui-components-oss`      |
 
 ## 📚 More
 

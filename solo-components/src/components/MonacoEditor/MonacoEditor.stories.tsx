@@ -1,9 +1,8 @@
-import styled from "@emotion/styled";
 import type { Decorator, Meta, StoryObj } from "@storybook/react";
 import { Drawer } from "antd";
-import { X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../Button";
+import { CloseButton } from "../CloseButton";
 import { MonacoEditorWithSettings } from "./MonacoEditorWithSettings";
 
 const meta: Meta<typeof MonacoEditorWithSettings> = {
@@ -38,7 +37,7 @@ export const Json: Story = {
   args: {
     language: "json",
     value: `{
-  "name": "@solo.io/ui-components-oss",
+  "name": "@solo-io/ui-components-oss",
   "private": false,
   "keep": "the button"
 }`,
@@ -154,33 +153,6 @@ spec:
             name: payments-api-config
 `;
 
-// Bigger hit area than the icon, X stays 16-18px and centered, clear states.
-const DrawerCloseButton = styled.button`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  background: transparent;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  color: inherit;
-  transition: background-color 0.05s ease;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  &:active {
-    background-color: rgba(255, 255, 255, 0.18);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-primary, #6844ff);
-    outline-offset: 2px;
-  }
-`;
-
 // Demonstrates the common "view a resource" pattern: a button opens a Drawer
 // with the editor in read-only mode. The manifest is long enough to scroll,
 // which also shows the controls shifting clear of the vertical scrollbar.
@@ -198,15 +170,7 @@ const ViewYamlDrawer = () => {
         open={open}
         onClose={() => setOpen(false)}
         closable={false}
-        extra={
-          <DrawerCloseButton
-            type="button"
-            aria-label="Close"
-            onClick={() => setOpen(false)}
-          >
-            <X size={18} />
-          </DrawerCloseButton>
-        }
+        extra={<CloseButton aria-label="Close" onClick={() => setOpen(false)} />}
         styles={{ body: { padding: 0 } }}
       >
         <MonacoEditorWithSettings

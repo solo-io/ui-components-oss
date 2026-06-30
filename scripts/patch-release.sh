@@ -81,8 +81,8 @@ emoji_info "You can Ctrl+C to detach — the workflow keeps running on GitHub re
 if gh run watch "$RUN_ID" --exit-status; then
   emoji_party "🟢  Publish workflow succeeded for $NEW_TAG"
   emoji_link "Run summary: $RUN_URL"
-  emoji_link "Package:    https://www.npmjs.com/package/@solo.io/ui-components-oss"
-  emoji_party "✨  @solo.io/ui-components-oss@$NEW_VERSION is live on npm 📬"
+  emoji_link "Package:    https://www.npmjs.com/package/@solo-io/ui-components-oss"
+  emoji_party "✨  @solo-io/ui-components-oss@$NEW_VERSION is live on npm 📬"
   exit 0
 else
   emoji_fail "🔴  Publish workflow failed for $NEW_TAG"

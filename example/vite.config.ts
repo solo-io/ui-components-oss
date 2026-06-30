@@ -13,7 +13,7 @@ export default defineConfig({
     // Resolve the workspace package to its source so the example reloads on
     // library edits without rebuilding the library.
     alias: {
-      '@solo.io/ui-components-oss': resolve(__dirname, '../solo-components/src/index.ts')
+      '@solo-io/ui-components-oss': resolve(__dirname, '../solo-components/src/index.ts')
     }
   },
   server: {

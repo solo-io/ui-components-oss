@@ -1,4 +1,4 @@
-# 🧩 @solo.io/ui-components-oss
+# 🧩 @solo-io/ui-components-oss
 
 Open-source React component library. Vite library mode + TypeScript + Emotion.
 Published as a public package to the npm registry.
@@ -8,7 +8,7 @@ Published as a public package to the npm registry.
 Public on the npm registry — no authentication required:
 
 ```bash
-yarn add @solo.io/ui-components-oss
+yarn add @solo-io/ui-components-oss
 ```
 
 ## 🧩 Setup
@@ -19,7 +19,7 @@ editor settings and a react-hot-toast host, so every component works as a
 drop-in:
 
 ```tsx
-import { SoloContextProvider } from "@solo.io/ui-components-oss";
+import { SoloContextProvider } from "@solo-io/ui-components-oss";
 
 createRoot(document.getElementById("root")!).render(
   <SoloContextProvider>
@@ -50,14 +50,14 @@ defaults and any outer `ThemeProvider`):
 ## 🎨 Use
 
 ```tsx
-import { Button } from "@solo.io/ui-components-oss";
+import { Button } from "@solo-io/ui-components-oss";
 
 <Button color="purple" onClick={() => alert("hi")}>
   Click me
 </Button>;
 ```
 
-Styles are exported from `@solo.io/ui-components-oss/styles`. See `./src/styles.ts` for the exported style objects.
+Styles are exported from `@solo-io/ui-components-oss/styles`. See `./src/styles.ts` for the exported style objects.
 
 ## 🖋️ Monaco editor
 
@@ -68,7 +68,7 @@ the copy/download toasts are supplied by `SoloContextProvider` (see
 
 ```tsx
 import { useState } from "react";
-import { MonacoEditorWithSettings } from "@solo.io/ui-components-oss";
+import { MonacoEditorWithSettings } from "@solo-io/ui-components-oss";
 
 // Inside an app already wrapped in <SoloContextProvider>:
 export const Example = () => {
@@ -114,7 +114,7 @@ defaults otherwise: `--color-bg-elevated`, `--color-border-base`,
 styled `div`s for quick layout without one-off styled components:
 
 ```tsx
-import { FlexLayout, Spacer } from "@solo.io/ui-components-oss";
+import { FlexLayout, Spacer } from "@solo-io/ui-components-oss";
 
 <FlexLayout horizontal vertical gap={3}>
   <Spacer px="16px">Left</Spacer>

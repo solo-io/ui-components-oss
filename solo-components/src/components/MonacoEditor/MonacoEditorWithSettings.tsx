@@ -21,6 +21,11 @@ const EditorContainer = styled.div<{ height: string; styleOverrides?: Serialized
   display: flex;
   flex-direction: column;
   background: transparent;
+  /* Themed frame — subtle in dark, and gives the editor a visible edge against a
+     light page where its background would otherwise blend in. */
+  border: 1px solid var(--color-border-base, #3f3f46);
+  border-radius: 8px;
+  overflow: hidden;
   ${props => props.styleOverrides}
 `;
 

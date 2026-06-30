@@ -182,7 +182,22 @@ export function SoloContextProvider({ children, mode = 'dark', features, config 
     <SoloModeProvider value={mode}>
       <ThemeLayer enabled={themeEnabled} mode={mode} overrides={config?.theme}>
         <EditorSettingsProvider>
-          {toasterEnabled && <Toaster {...(config?.toaster ?? {})} />}
+          {toasterEnabled && (
+            <Toaster
+              {...config?.toaster}
+              position={config?.toaster?.position ?? 'bottom-right'}
+              toastOptions={{
+                ...config?.toaster?.toastOptions,
+                // Themed via CSS variables so toasts match light/dark automatically.
+                style: {
+                  background: 'var(--color-bg-elevated, #1e1e22)',
+                  color: 'var(--color-text-primary, #fafafa)',
+                  border: '1px solid var(--color-border-base, #3f3f46)',
+                  ...config?.toaster?.toastOptions?.style
+                }
+              }}
+            />
+          )}
           {children}
         </EditorSettingsProvider>
       </ThemeLayer>
