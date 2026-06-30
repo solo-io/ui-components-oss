@@ -75,10 +75,10 @@ export const StyledButton = styled(
           /* Hover/active tint the fill toward the button's own accent — active is a
              clearly deeper step than hover, plus a press shift. */
           &:not([aria-disabled='true']):hover {
-            background-color: color-mix(in srgb, ${c.bg} 14%, var(--color-bg-elevated, #1b1624));
+            background-color: color-mix(in srgb, ${c.bg} 9%, var(--color-bg-elevated, #1b1624));
           }
           &:not([aria-disabled='true']):active {
-            background-color: color-mix(in srgb, ${c.bg} 30%, var(--color-bg-elevated, #1b1624));
+            background-color: color-mix(in srgb, ${c.bg} 18%, var(--color-bg-elevated, #1b1624));
             transform: translateY(1px);
           }
         `
