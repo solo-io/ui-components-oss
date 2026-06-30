@@ -116,9 +116,13 @@ export function Alert({ type = 'info', title, children, gradient = false, isDism
     onDismiss?.();
   };
 
+  // info/success are polite (status); warning/danger interrupt (alert).
+  const role = type === 'warning' || type === 'danger' ? 'alert' : 'status';
+
   return (
-    <Container role='alert' background={background} frame={accent} shadow={shadow}>
-      <IconSlot accent={accent}>
+    <Container role={role} background={background} frame={accent} shadow={shadow}>
+      {/* Icon is decorative — the title/message already carry the meaning. */}
+      <IconSlot accent={accent} aria-hidden='true'>
         <Icon />
       </IconSlot>
       <Body>

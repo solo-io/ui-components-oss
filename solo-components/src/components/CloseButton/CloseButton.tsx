@@ -36,6 +36,10 @@ const StyledCloseButton = styled('button', dontForwardProps('styleOverrides'))<{
     outline-offset: 2px;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   svg {
     display: block;
   }

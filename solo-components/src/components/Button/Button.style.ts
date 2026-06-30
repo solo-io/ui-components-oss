@@ -103,6 +103,14 @@ export const StyledButton = styled(
       cursor: not-allowed;
     }
 
+    /* The only motion is the 1px press shift; color feedback stays. */
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      &:active {
+        transform: none;
+      }
+    }
+
     ${props.styleOverrides ? props.styleOverrides : ''}
   `;
 });

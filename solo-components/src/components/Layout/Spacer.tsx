@@ -123,7 +123,8 @@ export const Spacer = styled(
   ${cssProp('text-overflow', props.textOverflow)}
   ${cssProp('z-index', props.zIndex)}
 
-  animation: ${props.fadeIn ? `fadeIn 200ms ease forwards` : 'none'};
+  animation: ${props.fadeIn ? `fadeIn 200ms cubic-bezier(0.22, 1, 0.36, 1) forwards` : 'none'};
+  ${props.fadeIn ? `@media (prefers-reduced-motion: reduce) { animation: none; opacity: 1; }` : ''}
 
   ${props.stylingOverrides?.styles ? props.stylingOverrides.styles : ''}
 `;
