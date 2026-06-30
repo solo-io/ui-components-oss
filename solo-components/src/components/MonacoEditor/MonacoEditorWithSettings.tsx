@@ -69,17 +69,19 @@ const IconActionButton = styled.button`
   transition: all 0.05s ease;
 
   &:hover {
-    background: var(--color-bg-hover, #2a2a30);
-    border-color: var(--color-primary, #6844ff);
+    background: var(--color-bg-hover, #282035);
+    border-color: var(--color-primary, #8134e2);
   }
 
+  /* Active is a clearly distinct step from hover (deeper fill + press shift). */
   &:active {
-    background: var(--color-bg-hover, #2a2a30);
+    background: var(--color-bg-active, #352b48);
+    border-color: var(--color-primary, #8134e2);
     transform: translateY(1px);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary, #6844ff);
+    outline: 2px solid var(--color-primary, #8134e2);
     outline-offset: 2px;
   }
 

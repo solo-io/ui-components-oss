@@ -28,7 +28,7 @@ export interface SoloColorTokens {
  */
 export const soloColorTokens: Record<SoloColorName, SoloColorTokens> = {
   // Bare dark-purple is brighter on dark, darker on light, so it reads well on both.
-  'dark-purple': { bg: '#8023c3', hover: '#9534d4', active: '#6a1ba3', fg: '#ffffff', bareFg: { dark: '#a855f7', light: '#7e22ce' } },
+  'dark-purple': { bg: '#8134e2', hover: '#9450e8', active: '#6a24c0', fg: '#ffffff', bareFg: { dark: '#b083f0', light: '#7a2fd0' } },
   blue: { bg: '#2563eb', hover: '#3b82f6', active: '#1d4ed8', fg: '#ffffff', bareFg: '#2563eb' },
   red: { bg: '#a82f25', hover: '#c0392b', active: '#871f17', fg: '#ffffff', bareFg: '#c64f48' },
   // Deep amber, near-complementary to the purple theme.

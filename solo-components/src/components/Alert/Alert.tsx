@@ -53,7 +53,7 @@ export type AlertType = 'info' | 'success' | 'warning' | 'danger';
 // truer red / yellow); it falls back to the solid when omitted.
 const typeConfig: Record<AlertType, { color: SoloColorName; Icon: LucideIcon; darkAccent: string; lightAccent?: string }> = {
   // Brand purple, matching the Button's `dark-purple`.
-  info: { color: 'dark-purple', Icon: Info, darkAccent: '#b57bff', lightAccent: '#8023c3' },
+  info: { color: 'dark-purple', Icon: Info, darkAccent: '#b57bff', lightAccent: '#8134e2' },
   success: { color: 'success', Icon: CircleCheck, darkAccent: '#2fe07f', lightAccent: '#16a34a' },
   warning: { color: 'warning', Icon: TriangleAlert, darkAccent: '#ffb238', lightAccent: '#f7c52e' },
   danger: { color: 'red', Icon: OctagonAlert, darkAccent: '#ff6a6a', lightAccent: '#ef3030' }

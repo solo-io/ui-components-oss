@@ -17,6 +17,8 @@ export interface SoloTheme {
     background: string;
     bgElevated: string;
     bgHover: string;
+    /** Pressed/active surface — a clearly distinct step from `bgHover`. */
+    bgActive: string;
     borderBase: string;
     primary: string;
     textPrimary: string;
@@ -28,24 +30,28 @@ const FONT_FAMILY = "'Figtree', ui-sans-serif, system-ui, sans-serif";
 
 // Light and dark palettes. The editor chrome and components read these via the
 // `--color-*` CSS variables the provider injects.
+// Purple-core: neutrals are tinted toward the brand violet (#8134e2, hue ~267) so
+// purple reads as the system. `bgHover` → `bgActive` is a clear, deliberate step.
 const palettes: Record<SoloMode, SoloTheme['colors']> = {
   dark: {
-    background: '#0d0e15',
-    bgElevated: '#1e1e22',
-    bgHover: '#2a2a30',
-    borderBase: '#3f3f46',
-    primary: '#6844ff',
-    textPrimary: '#fafafa',
-    textSecondary: '#a1a1aa'
+    background: '#0f0b18',
+    bgElevated: '#1b1624',
+    bgHover: '#282035',
+    bgActive: '#352b48',
+    borderBase: '#3d344d',
+    primary: '#8134e2',
+    textPrimary: '#f6f4fb',
+    textSecondary: '#a6a0b8'
   },
   light: {
     background: '#ffffff',
-    bgElevated: '#f4f4f5',
-    bgHover: '#e4e4e7',
-    borderBase: '#d4d4d8',
-    primary: '#6844ff',
-    textPrimary: '#18181b',
-    textSecondary: '#52525b'
+    bgElevated: '#f6f3fb',
+    bgHover: '#ece7f5',
+    bgActive: '#ddd3ee',
+    borderBase: '#ded7ec',
+    primary: '#8134e2',
+    textPrimary: '#1a1623',
+    textSecondary: '#585465'
   }
 };
 
@@ -103,6 +109,7 @@ const globalStyles = (theme: SoloTheme) => css`
     --color-background: ${theme.colors.background};
     --color-bg-elevated: ${theme.colors.bgElevated};
     --color-bg-hover: ${theme.colors.bgHover};
+    --color-bg-active: ${theme.colors.bgActive};
     --color-border-base: ${theme.colors.borderBase};
     --color-primary: ${theme.colors.primary};
     --color-text-primary: ${theme.colors.textPrimary};

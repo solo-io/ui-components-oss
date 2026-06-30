@@ -68,15 +68,16 @@ export const StyledButton = styled(
       ? css`
           /* Outlined "secondary" button: dim fill with the accent as both outline
              and text, so the color/variant reads clearly (legible in both modes). */
-          background-color: var(--color-bg-elevated, #1e1e22);
+          background-color: var(--color-bg-elevated, #1b1624);
           color: ${bareFg};
           border-color: ${bareFg};
-          /* Hover/active tint the fill toward the button's own accent. */
+          /* Hover/active tint the fill toward the button's own accent — active is a
+             clearly deeper step than hover, plus a press shift. */
           &:not([aria-disabled='true']):hover {
-            background-color: color-mix(in srgb, ${c.bg} 14%, var(--color-bg-elevated, #1e1e22));
+            background-color: color-mix(in srgb, ${c.bg} 14%, var(--color-bg-elevated, #1b1624));
           }
           &:not([aria-disabled='true']):active {
-            background-color: color-mix(in srgb, ${c.bg} 22%, var(--color-bg-elevated, #1e1e22));
+            background-color: color-mix(in srgb, ${c.bg} 30%, var(--color-bg-elevated, #1b1624));
             transform: translateY(1px);
           }
         `
