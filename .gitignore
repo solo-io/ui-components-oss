@@ -15,3 +15,11 @@ coverage
 .vite
 .omc
 scheduled_tasks.lock
+
+# impeccable — local state & runtime artifacts (keep shared config.json tracked)
+.impeccable/config.local.json
+.impeccable/live/
+.impeccable/critiques/
+.impeccable/design.json
+.impeccable-live.json
+.impeccable-live/
