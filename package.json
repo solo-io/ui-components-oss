@@ -1,0 +1,22 @@
+{
+  "name": "solo-components-workspace",
+  "private": true,
+  "packageManager": "yarn@4.9.0",
+  "engines": {
+    "node": ">= 24.8.0"
+  },
+  "workspaces": [
+    "solo-components",
+    "example"
+  ],
+  "scripts": {
+    "build": "yarn workspace @solo.io/ui-components-oss build",
+    "lint": "yarn workspace @solo.io/ui-components-oss lint",
+    "test": "yarn workspace @solo.io/ui-components-oss test",
+    "storybook": "yarn workspace @solo.io/ui-components-oss storybook",
+    "build-storybook": "yarn workspace @solo.io/ui-components-oss build-storybook",
+    "example": "yarn workspace solo-components-example dev",
+    "example:build": "yarn workspace solo-components-example build",
+    "patch-release": "bash scripts/patch-release.sh"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "name": "@solo.io/ui-components-oss",
+  "version": "0.0.1",
+  "description": "Open-source React component library for Solo.io projects",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "yarn@4.9.0",
+  "engines": {
+    "node": ">= 24.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solo-io/ui-components-oss.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "main": "./dist/solo-components.cjs",
+  "module": "./dist/solo-components.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/solo-components.js",
+      "require": "./dist/solo-components.cjs"
+    },
+    "./styles": {
+      "types": "./dist/styles.d.ts",
+      "import": "./dist/styles.js",
+      "require": "./dist/styles.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && vite build --config vite.lib.config.ts",
+    "dev": "vite build --watch",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static"
+  },
+  "dependencies": {
+    "react-hot-toast": "^2.4.1"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@monaco-editor/react": "^4.0.0",
+    "antd": "^5.0.0",
+    "lucide-react": ">=0.400.0",
+    "monaco-editor": ">=0.40.0",
+    "monaco-vim": "^0.4.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@monaco-editor/react": {
+      "optional": true
+    },
+    "antd": {
+      "optional": true
+    },
+    "lucide-react": {
+      "optional": true
+    },
+    "monaco-editor": {
+      "optional": true
+    },
+    "monaco-vim": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@monaco-editor/react": "^4.7.0",
+    "@storybook/addon-essentials": "^8.6.0",
+    "@storybook/react": "^8.6.0",
+    "@storybook/react-vite": "^8.6.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "antd": "^5.23.3",
+    "happy-dom": "^15.11.7",
+    "lucide-react": "^0.562.0",
+    "monaco-editor": "^0.55.1",
+    "monaco-vim": "^0.4.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "storybook": "^8.6.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vite-plugin-dts": "^4.4.0",
+    "vitest": "^2.1.8"
+  }
+}

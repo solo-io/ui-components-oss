@@ -1,0 +1,53 @@
+name: Publish package
+
+on:
+  push:
+    tags: ['v*']
+
+# OIDC Trusted Publishing (mirrors solo-io's platform-portal-backstage-plugin-backend
+# release workflow): `id-token: write` lets the npm CLI exchange a short-lived GitHub
+# OIDC token for a temporary npm credential at publish time. No long-lived token is
+# stored, and build provenance is attested automatically.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Sync package.json version with tag
+        working-directory: solo-components
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::Tag '$GITHUB_REF_NAME' is not a valid semver. Use vMAJOR.MINOR.PATCH (e.g. v0.1.1)."
+            exit 1
+          fi
+          npm pkg set version="$VERSION"
+          echo "Set @solo.io/ui-components-oss version to $VERSION"
+
+      - name: Build library
+        run: yarn build
+
+      # Publish with the npm CLI (not `yarn npm publish`) so OIDC Trusted Publishing
+      # kicks in. No NODE_AUTH_TOKEN is set — npm detects the GitHub OIDC environment
+      # and mints a short-lived credential. Node 24's bundled npm satisfies the
+      # >= 11.5.1 requirement, so no manual npm upgrade is needed.
+      - name: Publish to npm (OIDC Trusted Publishing)
+        working-directory: solo-components
+        run: npm publish --access public
