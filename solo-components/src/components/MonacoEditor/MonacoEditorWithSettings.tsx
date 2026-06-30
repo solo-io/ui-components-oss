@@ -361,6 +361,9 @@ export function MonacoEditorWithSettings({
           theme={resolvedTheme === 'dark' ? 'vs-dark' : 'vs'}
           onMount={handleEditorMount}
           options={{
+            // Keep Monaco fitted to its container as it resizes (e.g. a drawer
+            // opening) so it never ends up shorter than its box.
+            automaticLayout: true,
             ...options,
             readOnly,
             wordWrap: wordWrapEnabled ? 'on' : 'off',

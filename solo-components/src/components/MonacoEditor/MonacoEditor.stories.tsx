@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import type { Decorator, Meta, StoryObj } from "@storybook/react";
 import { Drawer } from "antd";
 import { useState } from "react";
@@ -178,6 +179,12 @@ const ViewYamlDrawer = () => {
           language="yaml"
           readOnly
           height="100%"
+          // Full-bleed in the drawer: drop the rounded corners + side/top border
+          // so it sits flush under the drawer title (the drawer supplies the frame).
+          styleOverrides={css`
+            border-radius: 0;
+            border-width: 0 0 1px 0;
+          `}
         />
       </Drawer>
     </>
