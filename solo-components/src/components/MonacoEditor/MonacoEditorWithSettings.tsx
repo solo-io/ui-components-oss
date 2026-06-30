@@ -15,6 +15,9 @@ import { useSoloMode } from '../../providers/SoloModeContext';
 // The component reads its palette from CSS custom properties so consumers can
 // theme it, but ships dark-theme fallbacks so it looks right with no theming.
 const EditorContainer = styled.div<{ height: string; styleOverrides?: SerializedStyles }>`
+  /* Include the 1px border in the 100% width/height so the container never spills
+     past a tight parent (e.g. an antd Drawer body), which would show scrollbars. */
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   height: ${props => props.height};
