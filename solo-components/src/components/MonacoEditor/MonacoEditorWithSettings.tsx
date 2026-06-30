@@ -8,13 +8,13 @@ import { initVimMode, type VimMode, VimMode as VimModeClass } from 'monaco-vim';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useEditorSettings } from './EditorSettingsContext';
-import { useSoloMode } from '../../providers/SoloModeContext';
+import { useSoloMode, type SoloMode } from '../../providers/SoloModeContext';
 
 // region Styles
 
 // The component reads its palette from CSS custom properties so consumers can
 // theme it, but ships dark-theme fallbacks so it looks right with no theming.
-const EditorContainer = styled.div<{ height: string; styleOverrides?: SerializedStyles }>`
+const EditorContainer = styled.div<{ height: string; mode: SoloMode; styleOverrides?: SerializedStyles }>`
   /* Include the 1px border in the 100% width/height so the container never spills
      past a tight parent (e.g. an antd Drawer body), which would show scrollbars. */
   box-sizing: border-box;
@@ -24,11 +24,17 @@ const EditorContainer = styled.div<{ height: string; styleOverrides?: Serialized
   display: flex;
   flex-direction: column;
   background: transparent;
-  /* Themed frame — subtle in dark, and gives the editor a visible edge against a
-     light page where its background would otherwise blend in. */
-  border: 1px solid var(--color-border-base, #3f3f46);
   border-radius: 8px;
   overflow: hidden;
+  /* Light gets a clearer border + a soft card shadow so the editor reads as an
+     elevated surface on a white page; dark keeps a subtle themed frame. */
+  ${props =>
+    props.mode === 'light'
+      ? `
+        border: 1px solid #cdd1d8;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 6px 16px rgba(16, 24, 40, 0.06);
+      `
+      : `border: 1px solid var(--color-border-base, #3f3f46);`}
   ${props => props.styleOverrides}
 `;
 
@@ -329,7 +335,7 @@ export function MonacoEditorWithSettings({
   ].filter(Boolean) as MenuProps['items'];
 
   return (
-    <EditorContainer height={height} styleOverrides={styleOverrides}>
+    <EditorContainer height={height} mode={resolvedTheme} styleOverrides={styleOverrides}>
       <EditorWrapper>
         <ControlsBar offsetRight={8 + scrollbarWidth}>
           <Tooltip title='Copy to clipboard'>

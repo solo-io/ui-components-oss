@@ -94,10 +94,13 @@ export function Alert({ type = 'info', title, children, gradient = false, isDism
     ? `radial-gradient(130% 130% at 100% 0%, ${tint(corner)} 0%, ${tint(basePct)} 65%)`
     : tint(solidPct);
 
-  // Neon glow from the accent (stronger in dark) plus a small drop shadow.
-  const glow = mode === 'dark' ? 34 : 16;
-  const dropAlpha = mode === 'dark' ? 0.32 : 0.1;
-  const shadow = `0 0 16px color-mix(in srgb, ${accent} ${glow}%, transparent), 0 2px 4px rgba(0, 0, 0, ${dropAlpha})`;
+  // Dark: a neon glow from the accent plus a small drop shadow. Light: a soft,
+  // slightly accent-tinted card shadow so the alert reads as an elevated surface
+  // instead of a flat tinted rectangle.
+  const shadow =
+    mode === 'dark'
+      ? `0 0 16px color-mix(in srgb, ${accent} 34%, transparent), 0 2px 4px rgba(0, 0, 0, 0.32)`
+      : `0 1px 2px rgba(16, 24, 40, 0.06), 0 10px 24px color-mix(in srgb, ${accent} 12%, rgba(16, 24, 40, 0.05))`;
 
   // Text is tinted with the accent but stays very light on dark / dark on light.
   const titleColor =
